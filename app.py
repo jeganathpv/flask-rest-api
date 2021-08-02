@@ -7,13 +7,13 @@ app = Flask(__name__)
 CORS(app, support_credentials=True)
 api = Api(app)
 
-class HealthCheck(Resource):
-    @app.route('/health', methods=['GET'])
+class HelloWorld(Resource):
+    @app.route('/test', methods=['GET'])
     @cross_origin(support_credentials=True)
-    def checkHealth():
-        return "Healthy"
+    def helloWorld():
+        return "Hello World!, I am from Heroku"
 
 
 if __name__ == "__main__":
-    api.add_resource(HealthCheck)
+    api.add_resource(HelloWorld)
     app.run()
